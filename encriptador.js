@@ -3,15 +3,15 @@ const alfabetos = {
     encriptados:["ai","enter","imes","ober","ufat"]
 }
 
-const wordEncriptada = (a,b,c) => {
+const encriptador = (vocales,encriptados,c) => {
     let newWord = "";
     for(let i = 0; i<c.length; i++){
         let flag = true;
-        for(let j = 0; j < a.length; j++){
-            if(c.charAt(i)==a[j]){
-                newWord = newWord + b[j];
+        for(let j = 0; j < vocales.length; j++){
+            if(c.charAt(i)==vocales[j]){
+                newWord = newWord + encriptados[j];
                 flag = false;
-                j = a.length;
+                j = vocales.length;
             }
         }
         if(flag){
@@ -21,14 +21,6 @@ const wordEncriptada = (a,b,c) => {
     return newWord;
 }
 
-console.log(wordEncriptada(alfabetos.vocales, alfabetos.encriptados, 'Bienvenidos estudiantes'))
+let word = 'gato'
 
-// const wordEncriptada = (word) => {return `hola ${word}`}
-
-// console.log(wordEncriptada('JULIAN'));
-
-// const suma = () => 2+2*2;
-
-// console.log(suma())
-
-
+console.log(encriptador(alfabetos.vocales, alfabetos.encriptados, word))
